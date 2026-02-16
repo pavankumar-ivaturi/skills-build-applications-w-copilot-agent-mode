@@ -29,6 +29,9 @@ import os
 codespace_name = os.environ.get('CODESPACE_NAME', None)
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 if codespace_name:
+    # Use the provided codespace URL for ALLOWED_HOSTS
+    ALLOWED_HOSTS.append('github.com')
+    ALLOWED_HOSTS.append('pavankumar-ivaturi.github.dev')
     ALLOWED_HOSTS.append(f'{codespace_name}-8000.app.github.dev')
 
 
