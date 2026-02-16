@@ -26,12 +26,8 @@ class LeaderboardViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    import os
-    codespace_name = os.environ.get('CODESPACE_NAME', 'localhost')
-    if codespace_name != 'localhost':
-        base_url = f"https://{codespace_name}-8000.app.github.dev"
-    else:
-        base_url = "http://localhost:8000"
+    # Use the provided codespace URL for all API endpoints
+    base_url = "https://github.com/pavankumar-ivaturi/skills-build-applications-w-copilot-agent-mode"
     return Response({
         'users': f'{base_url}/api/users/',
         'teams': f'{base_url}/api/teams/',
